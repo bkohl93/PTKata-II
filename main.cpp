@@ -27,6 +27,10 @@ std::string arabicToRoman(int n)
     else if (n > 4)
     {
         str += "V";
+        for (int i = 5; i < n; i++)
+        {
+            str += 'I';
+        }
     }
     
     return str;
@@ -57,3 +61,12 @@ TEST(aToR, testWithFive)
 {
     EXPECT_EQ("V", arabicToRoman(5));
 }
+
+TEST(aToR, testWithSix)
+{
+    EXPECT_EQ("VI", arabicToRoman(6));
+}
+
+
+
+
