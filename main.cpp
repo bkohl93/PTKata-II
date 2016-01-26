@@ -119,6 +119,17 @@ bool validateNumber(std::string str)
 bool validateString(std::string str)
 {
     bool isAString = true;
+    int len = str.length();
+    
+    for (int i = 0; i < len; i++)
+    {
+        if (str[i] != 'I' && str[i] != 'V')
+        {
+            isAString = false;
+        }
+    }
+    
+    
     return isAString;
 }
 
@@ -313,4 +324,7 @@ TEST(vStr, testWithValidRomanNumeral)
     EXPECT_TRUE(validateString("IV"));
 }
 
-
+TEST(vStr, testWithOtherCharacters)
+{
+    EXPECT_TRUE(!validateString("ZY"));
+}
