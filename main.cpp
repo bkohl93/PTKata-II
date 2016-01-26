@@ -86,8 +86,9 @@ int romanToArabic(std::string s)
 bool validateNumber(std::string str)
 {
     bool isANumber = true;
+    int n = atoi(str.c_str());
     
-    if (atoi(str.c_str()) > 3999) //valid roman numerals only go up to 3999
+    if (n > 3999 || n < 1) //valid roman numerals only between 1 and 3999 inclusive
     {
         isANumber = false;
     }
@@ -254,4 +255,9 @@ TEST(vNum, testWithValidNumber)
 TEST(vNum, testWithBarelyTooLargeNumber)
 {
     EXPECT_TRUE(!validateNumber("4000"));
+}
+
+TEST(vNum, testWithBarelyTooSmallNumber)
+{
+    EXPECT_TRUE(!validateNumber("0"));
 }
