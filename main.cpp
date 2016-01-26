@@ -57,9 +57,13 @@ int romanToArabic(std::string s)
         {
             numbers[i] += 50;
         }
-        else
+        else if (s[i] =='C')
         {
             numbers[i] += 100;
+        }
+        else
+        {
+            numbers[i] += 500;
         }
     }
     
@@ -212,4 +216,9 @@ TEST(rToA, testWithForty)
 TEST(rToA, testWithNinety)
 {
     EXPECT_EQ(90, romanToArabic("XC"));
+}
+
+TEST(rToA, testWithFourHundred)
+{
+    EXPECT_EQ(400, romanToArabic("CD"));
 }
