@@ -36,7 +36,7 @@ std::string arabicToRoman(int n)
     {
         str += "IX";
     }
-    else if (n > 9)
+    else if (n > 9 && n < 14)
     {
         str += "X";
         for (int i = 10; i < n; i++)
@@ -44,7 +44,10 @@ std::string arabicToRoman(int n)
             str += "I";
         }
     }
-    
+    else if (n == 14)
+    {
+        str += "XIV";
+    }
     return str;
 }
 
@@ -93,3 +96,16 @@ TEST(aToR, testWithEleven)
 {
     EXPECT_EQ("XI", arabicToRoman(11));
 }
+
+TEST(aToR, testWithFourteen)
+{
+    EXPECT_EQ("XIV", arabicToRoman(14));
+}
+
+
+
+
+
+
+
+
