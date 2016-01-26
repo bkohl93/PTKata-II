@@ -48,9 +48,13 @@ int romanToArabic(std::string s)
         {
             numbers[i] = 5;
         }
-        else
+        else if (s[i] == 'X')
         {
             numbers[i] += 10;
+        }
+        else
+        {
+            numbers[i] += 50;
         }
     }
     
@@ -193,4 +197,9 @@ TEST(rToA, testWithFour)
 TEST(rToA, testWithNine)
 {
     EXPECT_EQ(9, romanToArabic("IX"));
+}
+
+TEST(rToA, testWithForty)
+{
+    EXPECT_EQ(40, romanToArabic("XL"));
 }
