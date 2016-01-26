@@ -342,3 +342,13 @@ TEST(vStr, testWithImproperFormatting1)
 {
     EXPECT_TRUE(!validateString("IVX"));
 }
+
+TEST(vStr, testWithImproperFormatting2)
+{
+    EXPECT_TRUE(!validateString("IIIV"));
+}
+
+TEST(vStr, testWithImproperFormatting3)
+{
+    EXPECT_TRUE(!validateString("IIII"));
+}
