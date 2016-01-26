@@ -35,7 +35,14 @@ std::string arabicToRoman(int n)
 
 int romanToArabic(std::string s)
 {
-    return 1;
+    int num = 0, len = s.length();
+    
+    for (int i = 0; i < len; i++)
+    {
+        num++;
+    }
+    
+    return num;
 }
 
 int main(int argc, char * argv[])
@@ -152,4 +159,9 @@ TEST(aToR, testWithOneThousand)
 TEST(rToA, testWithOne)
 {
     EXPECT_EQ(1, romanToArabic("I"));
+}
+
+TEST(rToA, testWithTwo)
+{
+    EXPECT_EQ(2, romanToArabic("II"));
 }
