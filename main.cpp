@@ -36,11 +36,26 @@ std::string arabicToRoman(int n)
 int romanToArabic(std::string s)
 {
     int num = 0, len = s.length();
+    std::vector<int> numbers(len);
     
-    for (int i = 0; i < len; i++)
+    for (int i = 0; i < len; i++) //put the integer corresponding to the individual numeral in the array
     {
-        num++;
+        if (s[i] == 'I')
+        {
+            numbers[i] = 1;
+        }
+        else
+        {
+            numbers[i] = 5;
+        }
     }
+    
+    for (int i = 0; i < len-1; i++) //if a smaller integer precedes a larger one, subtract, otherwise add
+    {
+        (numbers[i] < numbers[i+1]) ? num -= numbers[i] : num += numbers[i];
+    }
+    
+    num += numbers[len-1]; //always add the last (possibly only) number in the array
     
     return num;
 }
@@ -164,4 +179,9 @@ TEST(rToA, testWithOne)
 TEST(rToA, testWithTwo)
 {
     EXPECT_EQ(2, romanToArabic("II"));
+}
+
+TEST(rToA, testWithFour)
+{
+    EXPECT_EQ(4, romanToArabic("IV"));
 }
