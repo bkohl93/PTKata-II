@@ -12,9 +12,16 @@ std::string arabicToRoman(int n)
 {
     std::string str = "";
     
-    for (int i = 0; i < n; i++)
+    if (n < 4)
     {
-        str += 'I';
+        for (int i = 0; i < n; i++)
+        {
+            str += 'I';
+        }
+    }
+    else
+    {
+        str += "IV";
     }
     
     return str;
@@ -34,4 +41,9 @@ TEST(aToR, testWithOne)
 TEST(aToR, testWithTwo)
 {
     EXPECT_EQ("II", arabicToRoman(2));
+}
+
+TEST(aToR, testWithFour)
+{
+    EXPECT_EQ("IV", arabicToRoman(4));
 }
