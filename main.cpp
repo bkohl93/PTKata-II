@@ -8,58 +8,28 @@
 #include <gtest/gtest.h>
 #include <iostream>
 
-
+//take a valid arabic integer as input and returns its roman numeral representation
 std::string arabicToRoman(int n)
 {
     std::string str = "";
+    int index = 0;
     
-    if (n < 4)
+    std::string roman [5] = {"X", "IX", "V", "IV", "I"};
+    int arabic [5] = {10, 9, 5, 4, 1};
+
+    while (n > 0)
     {
-        for (int i = 0; i < n; i++)
+        if (n < arabic[index]) //if n is less than the given number, try the next smallest number
         {
-            str += 'I';
+            index++;
+        }
+        else
+        {
+            str += roman[index]; //otherwise, concatenate the string and reduce n by the number
+            n -= arabic[index];
         }
     }
-    else if (n == 4)
-    {
-        str += "IV";
-    }
-    else if (n > 4 && n < 9)
-    {
-        str += "V";
-        for (int i = 5; i < n; i++)
-        {
-            str += 'I';
-        }
-    }
-    else if (n == 9)
-    {
-        str += "IX";
-    }
-    else if (n > 9 && n < 14)
-    {
-        str += "X";
-        for (int i = 10; i < n; i++)
-        {
-            str += "I";
-        }
-    }
-    else if (n == 14)
-    {
-        str += "XIV";
-    }
-    else if (n > 14 && n < 19)
-    {
-        str += "XV";
-        for (int i = 15; i < n; i++)
-        {
-            str += "I";
-        }
-    }
-    else if (n == 19)
-    {
-        str += "XIX";
-    }
+
     return str;
 }
 
@@ -128,3 +98,10 @@ TEST(aToR, testWithNineteen)
 {
     EXPECT_EQ("XIX", arabicToRoman(19));
 }
+
+TEST(aToR, testWithTwenty)
+{
+    EXPECT_EQ("XX", arabicToRoman(20));
+}
+
+
