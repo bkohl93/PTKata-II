@@ -33,6 +33,11 @@ std::string arabicToRoman(int n)
     return str;
 }
 
+int romanToArabic(std::string s)
+{
+    return 1;
+}
+
 int main(int argc, char * argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);
@@ -142,4 +147,9 @@ TEST(aToR, testWithNineHundred)
 TEST(aToR, testWithOneThousand)
 {
     EXPECT_EQ("M", arabicToRoman(1000));
+}
+
+TEST(rToA, testWithOne)
+{
+    EXPECT_EQ(1, romanToArabic("I"));
 }
