@@ -88,7 +88,7 @@ bool validateNumber(std::string str)
     bool isANumber = true;
     int len = str.length();
     
-    if (len < 5) //make sure the number is not too large for atoi
+    if (len < 5 && str[0] != '0') //make sure the number is not too large for atoi, nor has a leading zero
     {
         for (int i = 0; i < len; i++)
         {
@@ -295,4 +295,9 @@ TEST(vNum, testWithEmptyString)
 TEST(vNum, testWithInvalidShortString)
 {
     EXPECT_TRUE(!validateNumber("a"));
+}
+
+TEST(vNum, testWithLeadingZeros)
+{
+    EXPECT_TRUE(!validateNumber("012"));
 }
