@@ -240,8 +240,8 @@ TEST(rToA, testWithNineHundred)
     EXPECT_EQ(900, romanToArabic("CM"));
 }
 
-TEST(vNum, testWithRomanNumeral)
+TEST(vNum, testWithValidNumber)
 {
-    EXPECT_TRUE(validateNumber("IV"));
+    EXPECT_TRUE(validateNumber("4"));
 }
 
