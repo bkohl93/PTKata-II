@@ -36,6 +36,10 @@ std::string arabicToRoman(int n)
     {
         str += "IX";
     }
+    else if (n > 9)
+    {
+        str += "X";
+    }
     
     return str;
 }
@@ -76,4 +80,7 @@ TEST(aToR, testWithNine)
     EXPECT_EQ("IX", arabicToRoman(9));
 }
 
-
+TEST(aToR, testWithTen)
+{
+    EXPECT_EQ("X", arabicToRoman(10));
+}
