@@ -8,6 +8,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 
+
 std::string arabicToRoman(int n)
 {
     std::string str = "";
@@ -19,9 +20,13 @@ std::string arabicToRoman(int n)
             str += 'I';
         }
     }
-    else
+    else if (n == 4)
     {
         str += "IV";
+    }
+    else if (n > 4)
+    {
+        str += "V";
     }
     
     return str;
@@ -46,4 +51,9 @@ TEST(aToR, testWithTwo)
 TEST(aToR, testWithFour)
 {
     EXPECT_EQ("IV", arabicToRoman(4));
+}
+
+TEST(aToR, testWithFive)
+{
+    EXPECT_EQ("V", arabicToRoman(5));
 }
