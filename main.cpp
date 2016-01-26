@@ -48,6 +48,10 @@ std::string arabicToRoman(int n)
     {
         str += "XIV";
     }
+    else if (n > 14)
+    {
+        str += "XV";
+    }
     return str;
 }
 
@@ -102,7 +106,10 @@ TEST(aToR, testWithFourteen)
     EXPECT_EQ("XIV", arabicToRoman(14));
 }
 
-
+TEST(aToR, testWithFifteen)
+{
+    EXPECT_EQ("XV", arabicToRoman(15));
+}
 
 
 
