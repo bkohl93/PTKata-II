@@ -88,13 +88,24 @@ bool validateNumber(std::string str)
     bool isANumber = true;
     int len = str.length();
     
-    if (len < 5) //make sure it is not too large for atoi
+    if (len < 5) //make sure the number is not too large for atoi
     {
-        int n = atoi(str.c_str());
-        
-        if (n > 3999 || n < 1) //valid roman numerals only between 1 and 3999 inclusive
+        for (int i = 0; i < len; i++)
         {
-            isANumber = false;
+            if (str[i] < '0' || str[i] > '9')
+            {
+                isANumber = false;
+            }
+        }
+        
+        if (isANumber)
+        {
+            int n = atoi(str.c_str());
+            
+            if (n > 3999 || n < 1) //valid roman numerals are only between 1 and 3999 inclusive
+            {
+                isANumber = false;
+            }
         }
     }
     else
@@ -279,4 +290,9 @@ TEST(vNum, testWithWayTooLargeNumber)
 TEST(vNum, testWithEmptyString)
 {
     EXPECT_TRUE(!validateNumber(""));
+}
+
+TEST(vNum, testWithInvalidShortString)
+{
+    EXPECT_TRUE(!validateNumber("a"));
 }
