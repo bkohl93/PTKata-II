@@ -121,19 +121,25 @@ bool validateString(std::string str)
     bool isAString = true;
     int len = str.length();
     
-    for (int i = 0; i < len; i++)
+    if (len > 0)
     {
-        if (str[i]!='I' && str[i]!='V' && str[i]!='X' && str[i]!='L' && str[i]!='C' && str[i]!='D' && str[i]!='M')
+        for (int i = 0; i < len; i++)
+        {
+            if (str[i]!='I' && str[i]!='V' && str[i]!='X' && str[i]!='L' && str[i]!='C' && str[i]!='D' && str[i]!='M')
+            {
+                isAString = false;
+            }
+        }
+        
+        if (str != arabicToRoman(romanToArabic(str)))
         {
             isAString = false;
         }
     }
-    
-    if (str != arabicToRoman(romanToArabic(str)))
+    else
     {
         isAString = false;
     }
-    
     return isAString;
 }
 
@@ -351,4 +357,9 @@ TEST(vStr, testWithImproperFormatting2)
 TEST(vStr, testWithImproperFormatting3)
 {
     EXPECT_TRUE(!validateString("IIII"));
+}
+
+TEST(vStr, testWithEmptyString)
+{
+    EXPECT_TRUE(!validateString(""));
 }
