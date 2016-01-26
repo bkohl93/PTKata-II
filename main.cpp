@@ -275,3 +275,8 @@ TEST(vNum, testWithWayTooLargeNumber)
 {
     EXPECT_TRUE(!validateNumber("40000000000000"));
 }
+
+TEST(vNum, testWithEmptyString)
+{
+    EXPECT_TRUE(!validateNumber(""));
+}
