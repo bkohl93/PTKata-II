@@ -39,7 +39,7 @@ int romanToArabic(std::string s)
     int num = 0, len = s.length();
     std::vector<int> numbers(len);
     
-    for (int i = 0; i < len; i++) //put the integer corresponding to the individual numeral in the array
+    for (int i = 0; i < len; i++) //put the integer corresponding to the individual numeral in an array
     {
         switch (s[i])
         {
@@ -80,6 +80,13 @@ int romanToArabic(std::string s)
     num += numbers[len-1]; //always add the last (possibly only) number in the array
     
     return num;
+}
+
+//takes a string and returns true if the string is a valid arabic integer representation of a roman numeral
+bool validateNumber(std::string str)
+{
+    bool isANumber = true;
+    return isANumber;
 }
 
 int main(int argc, char * argv[])
@@ -232,3 +239,9 @@ TEST(rToA, testWithNineHundred)
 {
     EXPECT_EQ(900, romanToArabic("CM"));
 }
+
+TEST(vNum, testWithRomanNumeral)
+{
+    EXPECT_TRUE(validateNumber("IV"));
+}
+
