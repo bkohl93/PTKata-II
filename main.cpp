@@ -29,7 +29,6 @@ std::string arabicToRoman(int n)
             n -= arabic[index];
         }
     }
-
     return str;
 }
 
@@ -114,6 +113,13 @@ bool validateNumber(std::string str)
     }
 
     return isANumber;
+}
+
+//takes a string and returns true if the string is a valid roman numeral representation of an arabic integer
+bool validateString(std::string str)
+{
+    bool isAString = true;
+    return isAString;
 }
 
 int main(int argc, char * argv[])
@@ -301,3 +307,10 @@ TEST(vNum, testWithLeadingZeros)
 {
     EXPECT_TRUE(!validateNumber("012"));
 }
+
+TEST(vStr, testWithValidRomanNumeral)
+{
+    EXPECT_TRUE(validateString("IV"));
+}
+
+
