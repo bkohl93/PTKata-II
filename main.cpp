@@ -8,7 +8,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 
-//take a valid arabic integer as input and returns its roman numeral representation
+//takes a valid arabic integer as input and returns its roman numeral representation
 std::string arabicToRoman(int n)
 {
     std::string str = "";
@@ -33,6 +33,7 @@ std::string arabicToRoman(int n)
     return str;
 }
 
+//takes a valid roman numeral as input and returns its arabic integer representation
 int romanToArabic(std::string s)
 {
     int num = 0, len = s.length();
@@ -52,9 +53,13 @@ int romanToArabic(std::string s)
         {
             numbers[i] += 10;
         }
-        else
+        else if (s[i] == 'L')
         {
             numbers[i] += 50;
+        }
+        else
+        {
+            numbers[i] += 100;
         }
     }
     
@@ -202,4 +207,9 @@ TEST(rToA, testWithNine)
 TEST(rToA, testWithForty)
 {
     EXPECT_EQ(40, romanToArabic("XL"));
+}
+
+TEST(rToA, testWithNinety)
+{
+    EXPECT_EQ(90, romanToArabic("XC"));
 }
