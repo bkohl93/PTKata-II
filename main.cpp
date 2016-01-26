@@ -14,8 +14,8 @@ std::string arabicToRoman(int n)
     std::string str = "";
     int index = 0;
     
-    std::string roman [9] = {"CD", "C", "XC", "XL", "X", "IX", "V", "IV", "I"};
-    int arabic [9] = {400, 100, 90, 40, 10, 9, 5, 4, 1};
+    std::string roman [10] = {"CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+    int arabic [10] = {400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
 
     while (n > 0)
     {
@@ -107,6 +107,11 @@ TEST(aToR, testWithTwenty)
 TEST(aToR, testWithForty)
 {
     EXPECT_EQ("XL", arabicToRoman(40));
+}
+
+TEST(aToR, testWithFifty)
+{
+    EXPECT_EQ("L", arabicToRoman(50));
 }
 
 TEST(aToR, testWithNinety)
