@@ -39,6 +39,10 @@ std::string arabicToRoman(int n)
     else if (n > 9)
     {
         str += "X";
+        for (int i = 10; i < n; i++)
+        {
+            str += "I";
+        }
     }
     
     return str;
@@ -83,4 +87,9 @@ TEST(aToR, testWithNine)
 TEST(aToR, testWithTen)
 {
     EXPECT_EQ("X", arabicToRoman(10));
+}
+
+TEST(aToR, testWithEleven)
+{
+    EXPECT_EQ("XI", arabicToRoman(11));
 }
