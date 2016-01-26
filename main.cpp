@@ -129,6 +129,10 @@ bool validateString(std::string str)
         }
     }
     
+    if (str != arabicToRoman(romanToArabic(str)))
+    {
+        isAString = false;
+    }
     
     return isAString;
 }
@@ -331,5 +335,10 @@ TEST(vStr, testWithOtherCharacters)
 
 TEST(vStr, testWithAllValidRomanNumerals)
 {
-    EXPECT_TRUE(validateString("IVXLCDM"));
+    EXPECT_TRUE(validateString("MDCLXVI"));
+}
+
+TEST(vStr, testWithImproperFormatting1)
+{
+    EXPECT_TRUE(!validateString("IVX"));
 }
