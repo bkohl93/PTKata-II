@@ -123,7 +123,7 @@ bool validateString(std::string str)
     
     for (int i = 0; i < len; i++)
     {
-        if (str[i] != 'I' && str[i] != 'V')
+        if (str[i]!='I' && str[i]!='V' && str[i]!='X' && str[i]!='L' && str[i]!='C' && str[i]!='D' && str[i]!='M')
         {
             isAString = false;
         }
@@ -327,4 +327,9 @@ TEST(vStr, testWithValidRomanNumeral)
 TEST(vStr, testWithOtherCharacters)
 {
     EXPECT_TRUE(!validateString("ZY"));
+}
+
+TEST(vStr, testWithAllValidRomanNumerals)
+{
+    EXPECT_TRUE(validateString("IVXLCDM"));
 }
