@@ -41,33 +41,34 @@ int romanToArabic(std::string s)
     
     for (int i = 0; i < len; i++) //put the integer corresponding to the individual numeral in the array
     {
-        if (s[i] == 'I')
+        switch (s[i])
         {
-            numbers[i] = 1;
-        }
-        else if (s[i] == 'V')
-        {
-            numbers[i] = 5;
-        }
-        else if (s[i] == 'X')
-        {
-            numbers[i] += 10;
-        }
-        else if (s[i] == 'L')
-        {
-            numbers[i] += 50;
-        }
-        else if (s[i] =='C')
-        {
-            numbers[i] += 100;
-        }
-        else if (s[i] == 'D')
-        {
-            numbers[i] += 500;
-        }
-        else
-        {
-            numbers[i] += 1000;
+            case 'I' :
+                numbers[i] = 1;
+                break;
+                
+            case 'V' :
+                numbers[i] = 5;
+                break;
+                
+            case 'X' :
+                numbers[i] = 10;
+                break;
+                
+            case 'L' :
+                numbers[i] = 50;
+                break;
+                
+            case 'C' :
+                numbers[i] = 100;
+                break;
+                
+            case 'D' :
+                numbers[i] = 500;
+                break;
+                
+            default :
+                numbers[i] = 1000;
         }
     }
     
