@@ -147,7 +147,7 @@ bool validateString(std::string str)
 std::string getInput()
 {
     std::string str;
-    std::cout << "Please enter an integer (1--3999) to convert to roman numerals or vice-versa, or 0 to exit." << std::endl;
+    std::cout << "Please enter an integer (1-3999) to convert to roman numerals or vice-versa, or 0 to exit." << std::endl;
     std::cin >> str;
     return str;
 }
@@ -169,11 +169,23 @@ void printConversion(std::string str)
     }
 }
 
-int main(int argc, char * argv[])
+int main()
+{
+    std::string s = getInput();
+    
+    while (s != "0")
+    {
+        printConversion(s);
+        s = getInput();
+    }
+    return 0;
+}
+
+/*int main(int argc, char * argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
-}
+}*/
 
 TEST(aToR, testWithOne)
 {
