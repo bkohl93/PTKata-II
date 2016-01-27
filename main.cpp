@@ -89,7 +89,7 @@ bool validateNumber(std::string str)
     
     if (len < 5 && str[0] != '0') //make sure the number is not too large for atoi, nor has a leading zero
     {
-        for (int i = 0; i < len; i++)
+        for (int i = 0; i < len; i++) //check that every character in the string is an integer
         {
             if (str[i] < '0' || str[i] > '9')
             {
@@ -141,6 +141,15 @@ bool validateString(std::string str)
         isAString = false;
     }
     return isAString;
+}
+
+//get input from user and return that input as a string
+std::string getInput()
+{
+    std::string str;
+    std::cout << "Please enter an integer (1--3999) to convert to roman numerals or vice-versa, or 0 to exit." << std::endl;
+    std::cin >> str;
+    return str;
 }
 
 int main(int argc, char * argv[])
