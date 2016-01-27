@@ -389,3 +389,12 @@ TEST(vStr, testWithEmptyString)
 {
     EXPECT_TRUE(!validateString(""));
 }
+
+TEST(rToA, testAll)
+{
+    for (int i = 1; i < 4000; i++)
+    {
+        EXPECT_EQ(i, romanToArabic(arabicToRoman(i)));
+    }
+}
+
