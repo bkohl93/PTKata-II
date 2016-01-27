@@ -152,7 +152,7 @@ std::string getInput()
     return str;
 }
 
-//output the correct message based on the user's input
+//output the correct message to the user based on the user's input
 void printConversion(std::string str)
 {
     if (validateNumber(str))
