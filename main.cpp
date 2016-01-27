@@ -5,8 +5,10 @@
 //  Date: 1/26/16
 //
 
-#include <gtest/gtest.h>
+//#include <gtest/gtest.h>
 #include <iostream>
+#include <stdlib.h>
+#include <vector>
 
 //takes a valid arabic integer as input and returns its roman numeral representation
 std::string arabicToRoman(int n)
@@ -185,7 +187,7 @@ int main()
 {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
-}*/
+}
 
 TEST(aToR, testWithOne)
 {
@@ -408,5 +410,5 @@ TEST(rToA, testAll)
     {
         EXPECT_EQ(i, romanToArabic(arabicToRoman(i)));
     }
-}
+}*/
 
