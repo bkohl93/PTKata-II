@@ -152,6 +152,23 @@ std::string getInput()
     return str;
 }
 
+//output the correct message based on the user's input
+void printConversion(std::string str)
+{
+    if (validateNumber(str))
+    {
+        std::cout << arabicToRoman(atoi(str.c_str())) << std::endl;
+    }
+    else if (validateString(str))
+    {
+        std::cout << romanToArabic(str) << std::endl;
+    }
+    else
+    {
+        std::cout << "This input is not valid." << std::endl;
+    }
+}
+
 int main(int argc, char * argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);
